@@ -1,0 +1,29 @@
+[project]
+name = "stockbot"
+version = "0.1.0"
+description = "Free-only paper-trading stock bot (standalone; research code vendored)"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.0",
+  "numpy>=1.26",
+  "httpx>=0.27",
+  "yfinance>=0.2.40",
+  "python-dotenv>=1.0",
+  "requests>=2.31",
+  "ddgs>=9.0.0",
+  "trafilatura>=1.8.0",
+  "beautifulsoup4>=4.12.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+stockbot = "stockbot.cli:main"
+
+[tool.setuptools]
+packages = ["stockbot", "stockbot.free_research"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
